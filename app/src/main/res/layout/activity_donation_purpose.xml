@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkblue"
+    tools:context=".DonationPurposeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="2dp"
+            android:alignmentMode="alignMargins"
+            android:columnCount="2"
+            android:columnOrderPreserved="false"
+            android:rowCount="4">
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="165dp"
+                android:layout_height="150sp"
+                android:layout_margin="5dp"
+                android:layout_marginRight="8sp"
+                app:cardBackgroundColor="@color/blue"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:id="@+id/mosque"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="120dp"
+                        android:layout_height="100dp"
+                        android:adjustViewBounds="true"
+                        android:background="@color/white"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/mosque_donation"
+                        app:shapeAppearanceOverlay="@style/roundImageview" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/googlesans_bold"
+                        android:text="Mosque"
+                        android:textColor="@color/white"
+                        android:textSize="20dp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="165sp"
+                android:layout_height="150sp"
+                android:layout_margin="5dp"
+                app:cardBackgroundColor="@color/blue"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:id="@+id/zakat"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="120dp"
+                        android:layout_height="100dp"
+                        android:adjustViewBounds="true"
+                        android:background="@color/white"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/zakat"
+                        app:shapeAppearanceOverlay="@style/roundImageview" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/googlesans_bold"
+                        android:text="Zakat"
+                        android:textColor="@color/white"
+                        android:textSize="20dp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="165sp"
+                android:layout_height="150sp"
+                android:layout_margin="5dp"
+                app:cardBackgroundColor="@color/blue"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:id="@+id/sadaqah"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="120dp"
+                        android:layout_height="100dp"
+                        android:adjustViewBounds="true"
+                        android:background="@color/white"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/sadaqah"
+                        app:shapeAppearanceOverlay="@style/roundImageview" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/googlesans_bold"
+                        android:text="Sadaqah"
+                        android:textColor="@color/white"
+                        android:textSize="20dp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="165sp"
+                android:layout_height="150sp"
+                android:layout_margin="5dp"
+                app:cardBackgroundColor="@color/blue"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:id="@+id/education"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="120dp"
+                        android:layout_height="100dp"
+                        android:adjustViewBounds="true"
+                        android:background="@color/white"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/education"
+                        app:shapeAppearanceOverlay="@style/roundImageview" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/googlesans_bold"
+                        android:text="Education"
+                        android:textColor="@color/white"
+                        android:textSize="20dp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+        </GridLayout>
+
+        <TextView
+            android:visibility="invisible"
+            android:id="@+id/responsed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="39dp"
+            android:text="Response"
+            android:layout_marginLeft="15dp"
+            android:textColor="@color/white">
+        </TextView>
+
+    </LinearLayout>
+
+</ScrollView>

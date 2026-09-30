@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/donationScrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkblue"
+    tools:context=".DonationAmount">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:visibility="gone"
+            android:id="@+id/giftAidConstraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/blue">
+
+
+            <CheckBox
+                android:id="@+id/giftAidcheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </CheckBox>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gift Aid"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/giftAidcheckBox"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:visibility="gone"
+            android:id="@+id/taxPayersConstraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/blue">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gift Aid is for UK Tax Payers"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:alignmentMode="alignMargins"
+            android:columnCount="2"
+            android:columnOrderPreserved="false"
+            android:rowCount="4">
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="220dp"
+                android:layout_height="130sp"
+                android:layout_margin="10dp"
+                android:layout_marginLeft="50dp"
+                app:cardBackgroundColor="@color/blue"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:id="@+id/fivePounds"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="130dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="20dp"
+                        android:adjustViewBounds="true"
+                        android:background="@color/white"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/five"
+                        app:shapeAppearanceOverlay="@style/roundImageview" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/googlesans_bold"
+                        android:text="Five Pounds"
+                        android:textColor="@color/white"
+                        android:textSize="20.0sp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="220dp"
+                android:layout_height="130sp"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/blue"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="1dp">
+
+                <LinearLayout
+                    android:id="@+id/tenPounds"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="130dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="20dp"
+                        android:adjustViewBounds="true"
+                        android:background="@color/white"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ten"
+                        app:shapeAppearanceOverlay="@style/roundImageview" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/googlesans_bold"
+                        android:text="Ten Pounds"
+                        android:textColor="@color/white"
+                        android:textSize="20.0sp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="220dp"
+                android:layout_height="130sp"
+                android:layout_marginLeft="50dp"
+                app:cardBackgroundColor="@color/blue"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:id="@+id/fifteenPounds"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="130dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="20dp"
+                        android:adjustViewBounds="true"
+                        android:background="@color/white"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/fifteen"
+                        app:shapeAppearanceOverlay="@style/roundImageview" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/googlesans_bold"
+                        android:text="Fifteen Pounds"
+                        android:textColor="@color/white"
+                        android:textSize="20.0sp" />
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="220dp"
+                android:layout_height="130sp"
+                android:layout_marginLeft="10dp"
+                app:cardBackgroundColor="@color/blue"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:id="@+id/twentyPounds"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="130dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="20dp"
+                        android:adjustViewBounds="true"
+                        android:background="@color/white"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/twenty"
+                        app:shapeAppearanceOverlay="@style/roundImageview" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/googlesans_bold"
+                        android:text="Twenty Pounds"
+                        android:textColor="@color/white"
+                        android:textSize="20.0sp" />
+
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="220dp"
+                android:layout_height="130sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="190dp"
+                android:layout_marginLeft="50dp"
+                app:cardBackgroundColor="@color/blue"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:id="@+id/customAmount"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="130dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="20dp"
+                        android:adjustViewBounds="true"
+                        android:background="@color/white"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/others"
+                        app:shapeAppearanceOverlay="@style/roundImageview" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/googlesans_bold"
+                        android:text="Other Amount"
+                        android:textColor="@color/white"
+                        android:textSize="20.0sp" />
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+        </GridLayout>
+
+        <TextView
+            android:visibility="invisible"
+            android:id="@+id/responsed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="39dp"
+            android:text="Response"
+            android:layout_marginLeft="15dp"
+            android:textColor="@color/white">
+        </TextView>
+
+    </LinearLayout>
+
+</ScrollView>

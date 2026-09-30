@@ -1,0 +1,77 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.example.donation'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.stripe.example.stripeapplication"
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        buildFeatures {
+            buildConfig = true
+        }
+        buildConfigField(
+                "String",
+                "EXAMPLE_BACKEND_URL",
+                "\"https://securenet.justyes.co.uk/Prod/iPay/STRIPE/process.php\""
+        )
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        create("release") {
+            keyAlias = "key0"
+            keyPassword = "123456"
+            storeFile = file("C:/Users/Haseeb/Desktop/keystore/stripe.jks")
+            storePassword = "123456"
+        }
+    }
+
+    buildTypes {
+        debug {
+            debuggable false
+        }
+        release {
+            minifyEnabled false
+            debuggable false //Ensure this is set to false
+            proguardFiles(
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
+            )
+            signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+String androidxLifecycleVersion = "2.6.2"
+String retrofitVersion = "2.11.0"
+String stripeTerminalVersion = "3.8.0"
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.activity:activity:1.9.1'
+    testImplementation 'junit:junit:4.13.2'
+    // Stripe Terminal library
+    implementation("com.stripe:stripeterminal-localmobile:$stripeTerminalVersion")
+    implementation("com.stripe:stripeterminal:$stripeTerminalVersion")
+    implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
+    implementation 'com.android.volley:volley:1.2.1'
+    implementation 'com.airbnb.android:lottie:3.4.2'
+    implementation 'com.github.bumptech.glide:glide:4.15.0'
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0"
+
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.15.0'
+}

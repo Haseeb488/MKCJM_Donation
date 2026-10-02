@@ -102,10 +102,15 @@ public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_OVERLAY_PERMISSION = 100;
     String device_name;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        DevicePolicyManager dpm = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
+//            dpm.clearDeviceOwnerApp(getPackageName());
+
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
@@ -421,7 +426,11 @@ public class MainActivity extends AppCompatActivity {
 
 
                         // Allow ONLY this app
-                        dpm.setLockTaskPackages(admin, new String[]{getPackageName()});
+//                        dpm.setLockTaskPackages(admin, new String[]{getPackageName()});
+                        dpm.setLockTaskPackages(admin, new String[]{
+                                getPackageName(),
+                                "com.android.settings"
+                        });
 
                         // Disable status bar
                         dpm.setStatusBarDisabled(admin, true);
@@ -431,9 +440,6 @@ public class MainActivity extends AppCompatActivity {
                         dpm.addUserRestriction(admin, UserManager.DISALLOW_FACTORY_RESET);
                         dpm.addUserRestriction(admin, UserManager.DISALLOW_SAFE_BOOT);
                         dpm.addUserRestriction(admin, UserManager.DISALLOW_ADD_USER);
-                        dpm.addUserRestriction(admin, UserManager.DISALLOW_CONFIG_WIFI);
-                        dpm.addUserRestriction(admin, UserManager.DISALLOW_CONFIG_BLUETOOTH);
-
                         startLockTask();
                     }
 
@@ -468,18 +474,20 @@ public class MainActivity extends AppCompatActivity {
         // Allow this app to enter Lock Task Mode
         dpm.setLockTaskPackages(
                 admin,
-                new String[]{getPackageName()}
+                new String[]{getPackageName(),
+                        "com.android.settings" // Allows launch and interaction with Settings
+                 }
         );
 
         // Android 9+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-
+            // Allow System Info (Clock, Status Icons) and Quick Settings access
             dpm.setLockTaskFeatures(
                     admin,
-                    DevicePolicyManager.LOCK_TASK_FEATURE_NONE
+                    DevicePolicyManager.LOCK_TASK_FEATURE_SYSTEM_INFO |
+                            DevicePolicyManager.LOCK_TASK_FEATURE_GLOBAL_ACTIONS
             );
         }
-
         // Disable status bar
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             dpm.setStatusBarDisabled(admin, true);
@@ -506,20 +514,14 @@ public class MainActivity extends AppCompatActivity {
                 UserManager.DISALLOW_SAFE_BOOT
         );
 
-        dpm.addUserRestriction(
-                admin,
-                UserManager.DISALLOW_ADD_USER
-        );
+        dpm.clearUserRestriction(admin, UserManager.DISALLOW_CONFIG_WIFI);
+        dpm.clearUserRestriction(admin, UserManager.DISALLOW_CHANGE_WIFI_STATE);
+        dpm.clearUserRestriction(admin, UserManager.DISALLOW_BLUETOOTH);
+        dpm.clearUserRestriction(admin, UserManager.DISALLOW_CONFIG_BLUETOOTH);
+        dpm.clearUserRestriction(admin, UserManager.DISALLOW_BLUETOOTH_SHARING);
 
-        dpm.addUserRestriction(
-                admin,
-                UserManager.DISALLOW_CONFIG_WIFI
-        );
 
-        dpm.addUserRestriction(
-                admin,
-                UserManager.DISALLOW_CONFIG_BLUETOOTH
-        );
+
 
         // Finally enter kiosk mode
         startLockTask();
